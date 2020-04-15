@@ -1,32 +1,113 @@
 <template>
     <svg width="798" height="756" viewBox="0 0 798 756" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <AC @click.native="select('AC')" />
-        <AL @click.native="select('AL')" />
-        <AM @click.native="select('AM')" />
-        <AP @click.native="select('AP')" />
-        <BA @click.native="select('BA')" />
-        <CE @click.native="select('CE')" />
-        <DF @click.native="select('DF')" />
-        <ES @click.native="select('ES')" />
-        <GO @click.native="select('GO')" />
-        <MA @click.native="select('MA')" />
-        <MG @click.native="select('MG')" />
-        <MS @click.native="select('MS')" />
-        <MT @click.native="select('MT')" />
-        <PA @click.native="select('PA')" />
-        <PB @click.native="select('PB')" />
-        <PE @click.native="select('PE')" />
-        <PI @click.native="select('PI')" />
-        <PR @click.native="select('PR')" />
-        <RJ @click.native="select('RJ')" />
-        <RN @click.native="select('RN')" />
-        <RO @click.native="select('RO')" />
-        <RR @click.native="select('RR')" />
-        <RS @click.native="select('RS')" />
-        <SC @click.native="select('SC')" />
-        <SE @click.native="select('SE')" />
-        <SP @click.native="select('SP')" />
-        <TO @click.native="select('TO')" />
+        <AC 
+            @click.native="click('AC')"
+            @mouseover.native="mouseover('AC')"
+        />
+        <AL 
+            @click.native="click('AL')"
+            @mouseover.native="mouseover('AL')"
+        />
+        <AM 
+            @click.native="click('AM')"
+            @mouseover.native="mouseover('AM')"
+        />
+        <AP 
+            @click.native="click('AP')"
+            @mouseover.native="mouseover('AP')"
+        />
+        <BA 
+            @click.native="click('BA')"
+            @mouseover.native="mouseover('BA')"
+        />
+        <CE 
+            @click.native="click('CE')"
+            @mouseover.native="mouseover('CE')"
+        />
+        <DF 
+            @click.native="click('DF')"
+            @mouseover.native="mouseover('DF')"
+        />
+        <ES 
+            @click.native="click('ES')"
+            @mouseover.native="mouseover('ES')"
+        />
+        <GO 
+            @click.native="click('GO')"
+            @mouseover.native="mouseover('GO')"
+        />
+        <MA 
+            @click.native="click('MA')"
+            @mouseover.native="mouseover('MA')"
+        />
+        <MG 
+            @click.native="click('MG')"
+            @mouseover.native="mouseover('MG')"
+        />
+        <MS 
+            @click.native="click('MS')"
+            @mouseover.native="mouseover('MS')"
+        />
+        <MT 
+            @click.native="click('MT')"
+            @mouseover.native="mouseover('MT')"
+        />
+        <PA 
+            @click.native="click('PA')"
+            @mouseover.native="mouseover('PA')"
+        />
+        <PB 
+            @click.native="click('PB')"
+            @mouseover.native="mouseover('PB')"
+        />
+        <PE 
+            @click.native="click('PE')"
+            @mouseover.native="mouseover('PE')"
+        />
+        <PI 
+            @click.native="click('PI')"
+            @mouseover.native="mouseover('PI')"
+        />
+        <PR 
+            @click.native="click('PR')"
+            @mouseover.native="mouseover('PR')"
+        />
+        <RJ 
+            @click.native="click('RJ')"
+            @mouseover.native="mouseover('RJ')"
+        />
+        <RN 
+            @click.native="click('RN')"
+            @mouseover.native="mouseover('RN')"
+        />
+        <RO 
+            @click.native="click('RO')"
+            @mouseover.native="mouseover('RO')"
+        />
+        <RR 
+            @click.native="click('RR')"
+            @mouseover.native="mouseover('RR')"
+        />
+        <RS 
+            @click.native="click('RS')"
+            @mouseover.native="mouseover('RS')"
+        />
+        <SC 
+            @click.native="click('SC')"
+            @mouseover.native="mouseover('SC')"
+        />
+        <SE 
+            @click.native="click('SE')"
+            @mouseover.native="mouseover('SE')"
+        />
+        <SP 
+            @click.native="click('SP')"
+            @mouseover.native="mouseover('SP')"
+        />
+        <TO 
+            @click.native="click('TO')"
+            @mouseover.native="mouseover('TO')"
+        />
     </svg>
 </template>
 
@@ -61,11 +142,6 @@ import TO from './States/TO.vue'
 
 export default {
     name: 'Brazil',
-    methods: {
-        select(state) {
-            console.log('Clicou no ', state)
-        }
-    },
     components: {
         AC,
         AL,
@@ -94,7 +170,31 @@ export default {
         SE,
         SP,
         TO,
-    }
+    },
+    data() {
+        return {
+            selectedState: undefined
+        };
+    },
+    methods: {
+        click(state) {
+            
+            console.log('Clicou no', state)
+
+            if (state === this.selectedState) {
+                this.selectedState = undefined;
+            }
+            else {
+                this.selectedState = state;
+            }
+        },
+        mouseover(state) {
+            if (this.selectedState) {
+                return;
+            }
+            console.log('mouseover no', state)
+        }
+    },
 }
 </script>
 
