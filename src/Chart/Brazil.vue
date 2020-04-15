@@ -1,32 +1,32 @@
 <template>
     <svg width="798" height="756" viewBox="0 0 798 756" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <AC />
-        <AL />
-        <AM />
-        <AP />
-        <BA />
-        <CE />
-        <DF />
-        <ES />
-        <GO />
-        <MA />
-        <MG />
-        <MS />
-        <MT />
-        <PA />
-        <PB />
-        <PE />
-        <PI />
-        <PR />
-        <RJ />
-        <RN />
-        <RO />
-        <RR />
-        <RS />
-        <SC />
-        <SE />
-        <SP />
-        <TO />
+        <AC @click.native="select('AC')" />
+        <AL @click.native="select('AL')" />
+        <AM @click.native="select('AM')" />
+        <AP @click.native="select('AP')" />
+        <BA @click.native="select('BA')" />
+        <CE @click.native="select('CE')" />
+        <DF @click.native="select('DF')" />
+        <ES @click.native="select('ES')" />
+        <GO @click.native="select('GO')" />
+        <MA @click.native="select('MA')" />
+        <MG @click.native="select('MG')" />
+        <MS @click.native="select('MS')" />
+        <MT @click.native="select('MT')" />
+        <PA @click.native="select('PA')" />
+        <PB @click.native="select('PB')" />
+        <PE @click.native="select('PE')" />
+        <PI @click.native="select('PI')" />
+        <PR @click.native="select('PR')" />
+        <RJ @click.native="select('RJ')" />
+        <RN @click.native="select('RN')" />
+        <RO @click.native="select('RO')" />
+        <RR @click.native="select('RR')" />
+        <RS @click.native="select('RS')" />
+        <SC @click.native="select('SC')" />
+        <SE @click.native="select('SE')" />
+        <SP @click.native="select('SP')" />
+        <TO @click.native="select('TO')" />
     </svg>
 </template>
 
@@ -61,6 +61,11 @@ import TO from './States/TO.vue'
 
 export default {
     name: 'Brazil',
+    methods: {
+        select(state) {
+            console.log('Clicou no ', state)
+        }
+    },
     components: {
         AC,
         AL,
