@@ -26,6 +26,7 @@ import SC from './States/SC.vue'
 import SE from './States/SE.vue'
 import SP from './States/SP.vue'
 import TO from './States/TO.vue'
+import InfoCard from './InfoCard.vue'
 import { ref, shallowRef } from 'vue'
 
 const selectedState = ref(null)
@@ -68,30 +69,43 @@ function onMouseOver (state) {
     if (selectedState.value) {
         return
     }
-    console.log('mouseover no', state)
 }
 </script>
 
 <template>
-    <svg width="798" height="756" viewBox="0 0 798 756" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <component
-            v-for="state in stateComponents"
-            :key="state.name"
-            :is="state"
-            @click.native="onClick(state.name)"
-            @mouseover.native="onMouseOver(state.name)"
+    <div class="brazil">
+        <svg width="798" height="756" viewBox="0 0 798 756" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <component
+                v-for="state in stateComponents"
+                :key="state.name"
+                :is="state"
+                @click="onClick(state.name)"
+                @mouseover="onMouseOver(state.name)"
+                class="brazil__state"
+                :class="{'brazil__state--selected': state.name === selectedState}"
+            />
+        </svg>
+
+        <InfoCard
+            v-if="selectedState"
+            :uf="selectedState"
         />
-    </svg>
+    </div>
 </template>
 
 <style>
-path {
+.brazil {
+    display: flex;
+}
+
+.brazil__state {
     fill: #cad9ff;
     stroke: #6584d0;
     transition: fill .2s ease-in-out, stroke .2s ease-in-out;
 }
 
-path:hover {
+.brazil__state:hover,
+.brazil__state--selected {
     fill: #5279da;
     stroke: #a4bfff;
 }
